@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients</title>
+    <link rel="stylesheet" href="patients.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Patients</h1>
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search patients...">
+            <button onclick="searchPatients()" style="margin-left: -523px;">Search</button> <!-- New search button -->
+            <button onclick="openAddPatientForm()">Add New Patient</button>
+        </div>
+        <ul id="patient-list">
+            <!-- List of patients will be populated here -->
+        </ul>
+    </div>
+
+    <!-- Add/Edit Patient Modal -->
+    <div id="patient-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePatientForm()">&times;</span>
+            <h2 id="modal-title">Add/Edit Patient</h2>
+            <form id="patient-form" onsubmit="submitPatientForm(event)">
+                <input type="hidden" id="patient-id">
+                <input type="text" id="first-name" placeholder="First Name" required>
+                <input type="text" id="last-name" placeholder="Last Name" required>
+                <input type="date" id="date-of-birth" required>
+                <input type="text" id="gender" placeholder="Gender" required>
+                <input type="text" id="contact-number" placeholder="Contact Number" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="address" placeholder="Address" required>
+                <input type="text" id="emergency-contact-name" placeholder="Emergency Contact Name" required>
+                <input type="text" id="emergency-contact-number" placeholder="Emergency Contact Number" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+      
+    <script src="../auth.js"></script>
+
+    <script src="patients.js"></script>
+</body>
+</html>

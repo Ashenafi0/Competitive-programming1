@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors</title>
+    <link rel="stylesheet" href="doctor.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Doctors</h1>
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search doctors...">
+            <button onclick="searchDoctors()" style="margin-left: -500px;">Search</button>
+            <button onclick="openAddDoctorForm()">Add New Doctor</button>
+        </div>
+        <ul id="doctor-list">
+            <!-- List of doctors will be populated here -->
+        </ul>
+    </div>
+
+    <!-- Add/Edit Doctor Modal -->
+    <div id="doctor-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDoctorForm()">&times;</span>
+            <h2 id="modal-title">Add/Edit Doctor</h2>
+            <form id="doctor-form" onsubmit="submitDoctorForm(event)">
+                <input type="hidden" id="doctor-id">
+                <input type="text" id="first-name" placeholder="First Name" required>
+                <input type="text" id="last-name" placeholder="Last Name" required>
+                <input type="date" id="date-of-birth" required>
+                <input type="text" id="gender" placeholder="Gender" required>
+                <input type="text" id="contact-number" placeholder="Contact Number" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="address" placeholder="Address" required>
+                <input type="text" id="license-number" placeholder="License Number" required>
+                <input type="text" id="specialization" placeholder="Specialization" required>
+                <input type="number" id="years-of-experience" placeholder="Years of Experience" required>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="../auth.js"></script> 
+    <script src="doctor.js"></script>
+</body>
+</html>

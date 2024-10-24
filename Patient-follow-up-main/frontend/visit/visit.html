@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Visits</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="./visit.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <section class="container">
+    <div class="login-container">
+      <div class="circle circle-one"></div>
+      <div class="form-container">
+        <h1 class="opacity cnt text-primary" id="toggleFormButton">Patient Visits</h1>
+        <div class="container" style="width: 30%; text-align: center;">
+          <div class="row" id="title-row"></div>
+        </div>
+        
+        <div class="visit">
+  <button type="button" class="v2" id="showVisitFormButton">Add a Visit</button>
+    
+    <div id="visitFormModal" class="modal-visit">
+        <div class="modal-content-visit">
+            <span class="close-button-visit">&times;</span>
+            <form id="visitFormNew">
+                <!-- Patient ID will be hidden and taken from URL -->
+                <input type="hidden" id="patient_id_hidden" name="patient_id">
+                
+                <label for="reason_for_visit_new">Reason for Visit:</label>
+                <textarea id="reason_for_visit_new" name="reason_for_visit" required></textarea><br>
+
+                <label for="visited_date_new">Visited Date:</label>
+                <input type="date" id="visited_date_new" name="visited_date" required><br>
+
+                <button type="submit" class="submit-button-visit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Edit Visit Modal -->
+  <div class="modal fade" id="editVisitModal" tabindex="-1" role="dialog" aria-labelledby="editVisitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editVisitModalLabel">Edit Visit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-visit-form">
+            <input type="hidden" id="visit_id" name="visit_id">
+            <div class="form-group">
+              <label for="reason_for_visit">Reason for Visit</label>
+              <input type="text" class="form-control" id="reason_for_visit" name="reason_for_visit" required>
+            </div>
+            <div class="form-group">
+              <label for="visited_date">Visited Date</label>
+              <input type="date" class="form-control" id="visited_date" name="visited_date" required>
+            </div>
+            <div id="form-message" class="text-danger mt-2"></div>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+      
+    <script src="../auth.js"></script>
+  <script src="./visit.js"></script>
+</body>
+</html>
